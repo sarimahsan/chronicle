@@ -44,7 +44,7 @@ def query_llm(commits, question, model="llama-3.3-70b-versatile"):
     commits_context = format_commits_context(commits)
     
     system_prompt = (
-        "You are Strata, a repository intelligence chatbot. Your task is to analyze the commit history "
+        "You are Chronicle, a repository intelligence chatbot. Your task is to analyze the commit history "
         "of a codebase and answer user questions. You have direct access to the commit logs including "
         "hashes, authors, emails, dates, messages, files changed, and line statistics (insertions/deletions).\n\n"
         "Guideline for answers:\n"
