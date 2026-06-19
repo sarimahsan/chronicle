@@ -48,8 +48,8 @@ Switch between different projects and keep them up to date instantly:
 
 ### <span style="color: #34d399;">1. Ingest a Repository</span>
 In the sidebar, enter the folder path or Git URL of the project you want to analyze:
-* **Local Workspace**: Enter the absolute path on your computer (e.g., `C:\Projects\MyAwesomeApp`).
-* **Remote Repository**: Enter a GitHub or GitLab HTTPS clone link (e.g., `https://github.com/username/project.git`).
+* **Local Workspace**: Enter the absolute path on your computer.
+* **Remote Repository**: Enter a GitHub or GitLab HTTPS clone link (e.g., `https://github.com/sarimahsan/chronicle.git`).
 * **Private Repositories**: Provide a GitHub Personal Access Token (PAT) in the optional token field.
 
 Click **Ingest Repository** to parse the history and build your project's intelligence network.
