@@ -1,7 +1,4 @@
-<p align="center">
-  <img src="assets/title_animation_gif_1781895463107.png" alt="Chronicle" width="500"/>
-</p>
-
+# <h1 align="center" style="border-bottom: none;"><img src="https://readme-typing-svg.demolab.com?font=Outfit&weight=700&size=32&duration=2000&pause=1000&color=818CF8&center=true&vCenter=true&width=500&lines=Chronicle;Repo+Intelligence" alt="Chronicle"></h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Graph%20DB-Neo4j-008cc1?style=for-the-badge&logo=neo4j" alt="DB Engine" />
