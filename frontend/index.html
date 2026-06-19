@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strata — Repository Intelligence Chatbot</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i data-lucide="layers"></i>
+                </div>
+                <h1>Strata</h1>
+                <span class="badge">v1.0</span>
+            </div>
+            
+            <!-- Ingestion Panel -->
+            <div class="panel-section">
+                <h2><i data-lucide="git-branch"></i> Ingest Repository</h2>
+                <div class="input-group">
+                    <label for="repo-input">Repo Path or Git URL</label>
+                    <input type="text" id="repo-input" placeholder="e.g. e:\Chronicle or https://github.com/..." />
+                </div>
+                <div class="input-group">
+                    <label for="token-input">GitHub PAT (Optional)</label>
+                    <input type="password" id="token-input" placeholder="For private repositories" />
+                </div>
+                <button id="ingest-btn" class="btn primary-btn">
+                    <i data-lucide="database-backup"></i>
+                    <span>Ingest Repository</span>
+                </button>
+            </div>
+            
+            <!-- Repo Metadata & Status -->
+            <div class="panel-section status-section hidden" id="status-panel">
+                <h2><i data-lucide="activity"></i> Repository Status</h2>
+                <div class="repo-meta">
+                    <div class="meta-item">
+                        <span class="label">Name:</span>
+                        <span class="value" id="meta-name">-</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Commits:</span>
+                        <span class="value" id="meta-commits">0</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Authors:</span>
+                        <span class="value" id="meta-authors">0</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Unique Files:</span>
+                        <span class="value" id="meta-files">0</span>
+                    </div>
+                </div>
+                
+                <h3>Top Contributors</h3>
+                <ul class="contributors-list" id="meta-contributors">
+                    <!-- Dynamic -->
+                </ul>
+                
+                <h3>Most Modified Files</h3>
+                <ul class="files-list" id="meta-files-list">
+                    <!-- Dynamic -->
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <header class="chat-header">
+                <div class="header-info">
+                    <h2>Workspace Intelligence</h2>
+                    <p id="active-repo-indicator">No repository loaded. Ingest a repository to start chatting.</p>
+                </div>
+                <div class="header-actions">
+                    <button id="clear-chat-btn" class="btn icon-btn" title="Clear chat history">
+                        <i data-lucide="trash-2"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="chat-messages" id="chat-messages">
+                <!-- Welcome Message -->
+                <div class="message system-msg welcome-msg">
+                    <div class="msg-avatar">
+                        <i data-lucide="bot"></i>
+                    </div>
+                    <div class="msg-content">
+                        <h3>Welcome to Strata</h3>
+                        <p>I can analyze your git commit history, lines changed, and patterns to help you understand your codebase history. To begin, configure a repository on the left panel.</p>
+                        
+                        <div class="suggested-queries">
+                            <h4>Suggested questions:</h4>
+                            <div class="queries-grid">
+                                <button class="query-suggestion-btn" disabled>Who authored the initial commits?</button>
+                                <button class="query-suggestion-btn" disabled>What files are changed the most?</button>
+                                <button class="query-suggestion-btn" disabled>Summarize the latest changes in the repo</button>
+                                <button class="query-suggestion-btn" disabled>Who is the top contributor and what do they focus on?</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Query Input Bar -->
+            <footer class="chat-input-area">
+                <form id="chat-form" class="chat-form">
+                    <input type="text" id="query-input" placeholder="Ask a question about the repository..." autocomplete="off" disabled />
+                    <button type="submit" id="send-btn" class="btn send-btn" disabled>
+                        <i data-lucide="send"></i>
+                    </button>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+        <i id="toast-icon" data-lucide="info"></i>
+        <span id="toast-msg">Notification Message</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
